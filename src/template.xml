@@ -1,0 +1,36 @@
+<%= htmlWebpackPlugin.tags.headTags.join('\n') %><category id="mixly_Sengo" name="Sengo视觉传感器" colour="#EF5411">
+  <category id="mixly_Sengo1" name="Sengo1" colour="#EF5411">
+    <category id="Sengo1_Setup" name="设置模块" colour="#EF5411">
+      <block type="Sengo1Begin"></block>
+      <block type="Sengo1LedSetColor">
+        <value name="level">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>      <!-- <block type="Sengo1SetAWB"></block> -->
+      <block type="Sengo1VisionSetStatus"></block>      <!-- <block type="Sengo1VisionSetParamNum"></block> -->
+      <block type="Sengo1VisionColorSetParam"></block>
+      <block type="Sengo1VisionBlobSetParam">
+        <field name="lable">Sengo1::kColorRed</field>
+      </block>
+    </category>
+    <category id="Sengo1_Run" name="运行模块" colour="#EAA20A">
+      <block type="Sengo1VisionDetectedCount"></block>
+      <block type="Sengo1VisionObj"></block>
+      <block type="Sengo1VisionObjColor"></block>
+      <block type="Sengo1VisionObjLine"></block>
+      <block type="Sengo1VisionObjQr"></block>
+      <block type="Sengo1GetQrValue"></block>
+      <block type="Sengo1VisionColor"></block>
+      <block type="Sengo1VisionCardBlob">
+        <field name="vision_card_obj">Sengo1::kColorRed</field>
+      </block>
+      <block type="Sengo1VisionBall"></block>
+      <block type="Sengo1VisionCard"></block>
+    </category>
+    <category id="Sengo1_example" name="算法示例" colour="#EAA20A">
+      <category id="Sengo1_example_Blod" name="色块检测" colour="#EAA20A">
+      </category>
+    </category>
+  </category>

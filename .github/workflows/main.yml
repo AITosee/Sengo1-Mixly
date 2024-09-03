@@ -27,7 +27,9 @@ jobs:
           npm install
           npm run build:prod
           cd dist 
-          zip -r ${{steps.vars.outputs.package}}.zip ${{steps.vars.outputs.package,,}}
+          PACK_DIR=${{steps.vars.outputs.package}}
+
+          zip -r ${{steps.vars.outputs.package}}.zip ${PACK_DIR}
           cp -rv ${{steps.vars.outputs.package}}.zip ${GITHUB_WORKSPACE}
 
           

@@ -168,18 +168,20 @@ export const ZhHansMsg = {
     SENGO_CARD_9: '9',
     SENGO_CARD_0: '0',
 
-    mixly_Sengo: 'Sengo 视觉传感器',
-    Sengo1_Setup: '设置模块',
-    Sengo1_Run: '运行模块',
-    Sengo1_example: '算法示例',
+    mixly_Sengo1: 'Sengo1 视觉传感器',
+    mixly_Sengo2: 'Sengo2 视觉传感器',
+
+    Sengo_Setup: '设置模块',
+    Sengo_Run: '运行模块',
+    Sengo_example: '算法示例',
 }
 
 export const ZhHansCatgories = {
-    mixly_Sengo: ZhHansMsg.mixly_Sengo,
+    mixly_Sengo1: ZhHansMsg.mixly_Sengo1,
 
-    Sengo1_Setup: ZhHansMsg.Sengo1_Setup,
-    Sengo1_Run: ZhHansMsg.Sengo1_Run,
-    Sengo1_example: ZhHansMsg.Sengo1_example,
+    Sengo1_Setup: ZhHansMsg.Sengo_Setup,
+    Sengo1_Run: ZhHansMsg.Sengo_Run,
+    Sengo1_example: ZhHansMsg.Sengo_example,
 
     Sengo1_example_Blod: ZhHansMsg.SENGO_VISION_VISIONBLOB,
     Sengo1_example_Color: ZhHansMsg.SENGO_VISION_VISIONCOLOR,
@@ -188,9 +190,10 @@ export const ZhHansCatgories = {
     Sengo1_example_Card: ZhHansMsg.SENGO_VISION_VISIONCARD,
     Sengo1_example_body: ZhHansMsg.SENGO_VISION_VISIONFACE,
 
-    Sengo2_Setup: ZhHansMsg.Sengo1_Setup,
-    Sengo2_Run: ZhHansMsg.Sengo1_Run,
-    Sengo2_example: ZhHansMsg.Sengo1_example,
+    mixly_Sengo2: ZhHansMsg.mixly_Sengo2,
+    Sengo2_Setup: ZhHansMsg.Sengo_Setup,
+    Sengo2_Run: ZhHansMsg.Sengo_Run,
+    Sengo2_example: ZhHansMsg.Sengo_example,
 
     Sengo_example_Blod: ZhHansMsg.SENGO_VISION_VISIONBLOB,
     Sengo_example_Color: ZhHansMsg.SENGO_VISION_VISIONCOLOR,

@@ -168,14 +168,15 @@ export const ZhHantMsg = {
     SENGO_CARD_9: '9',
     SENGO_CARD_0: '0',
 
-    mixly_Sengo: 'Sengo 視覺傳感器',
+    mixly_Sengo1: 'Sengo1 視覺傳感器',
+    mixly_Sengo2: 'Sengo2 視覺傳感器',
     Sengo1_Setup: '設置模塊',
     Sengo1_Run: '運行模塊',
     Sengo1_example: '算法示例',
 }
 
 export const ZhHantCatgories = {
-    mixly_Sengo: ZhHantMsg.mixly_Sengo,
+    mixly_Sengo1: ZhHantMsg.mixly_Sengo1,
 
     Sengo1_Setup: ZhHantMsg.Sengo1_Setup,
     Sengo1_Run: ZhHantMsg.Sengo1_Run,
@@ -188,6 +189,7 @@ export const ZhHantCatgories = {
     Sengo1_example_Card: ZhHantMsg.SENGO_VISION_VISIONCARD,
     Sengo1_example_body: ZhHantMsg.SENGO_VISION_VISIONFACE,
 
+    mixly_Sengo2: ZhHantMsg.mixly_Sengo2,
     Sengo2_Setup: ZhHantMsg.Sengo1_Setup,
     Sengo2_Run: ZhHantMsg.Sengo1_Run,
     Sengo2_example: ZhHantMsg.Sengo1_example,

@@ -1,4 +1,4 @@
-<%= htmlWebpackPlugin.tags.headTags.join('\n') %><category id="mixly_Sengo" name="Sengo视觉传感器" colour="#EF5411">
+<%= htmlWebpackPlugin.tags.headTags.join('\n') %>
   <category id="mixly_Sengo1" name="Sengo1" colour="#EF5411">
     <category id="Sengo1_Setup" name="设置模块" colour="#EF5411">
       <block type="Sengo1Begin"></block>
@@ -33,4 +33,3 @@
       <category id="Sengo1_example_Blod" name="色块检测" colour="#EAA20A">
       </category>
     </category>
-  </category>

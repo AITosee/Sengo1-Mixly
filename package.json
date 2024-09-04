@@ -1,6 +1,6 @@
 {
-    "name": "sengo-mixly",
-    "description": "适用于Mixly2.0的Sengo视觉传感器库",
+    "name": "sengo1-mixly",
+    "description": "适用于Mixly2.0的Sengo1视觉传感器库",
     "version": "1.0.0",
     "scripts": {
         "build:dev": "webpack --config=webpack.dev.js",
@@ -11,7 +11,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git@github.com:AITosee/Sengo-Mixly.git"
+        "url": "git@github.com:AITosee/Sengo1-Mixly.git"
     },
     "devDependencies": {
         "copy-webpack-plugin": "^11.0.0",

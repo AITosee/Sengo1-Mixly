@@ -170,18 +170,18 @@ export const EnMsg = {
     SENGO_CARD_9: '9',
     SENGO_CARD_0: '0',
 
-    mixly_Sengo: 'Sengo Vision Sensor',
-    Sengo1_Setup: 'Setting Blocks',
-    Sengo1_Run: 'Operation Blocks',
-    Sengo1_example: 'Example',
+    mixly_Sengo1: 'Sengo1 Vision Sensor',
+    mixly_Sengo2: 'Sengo2 Vision Sensor',
+    Sengo_Setup: 'Setting Blocks',
+    Sengo_Run: 'Operation Blocks',
+    Sengo_example: 'Example',
 }
 
 export const EnCatgories = {
-    mixly_Sengo: EnMsg.mixly_Sengo,
-
-    Sengo1_Setup: EnMsg.Sengo1_Setup,
-    Sengo1_Run: EnMsg.Sengo1_Run,
-    Sengo1_example: EnMsg.Sengo1_example,
+    mixly_Sengo1: EnMsg.mixly_Sengo1,
+    Sengo1_Setup: EnMsg.Sengo_Setup,
+    Sengo1_Run: EnMsg.Sengo_Run,
+    Sengo1_example: EnMsg.Sengo_example,
 
     Sengo1_example_Blod: EnMsg.SENGO_VISION_VISIONBLOB,
     Sengo1_example_Color: EnMsg.SENGO_VISION_VISIONCOLOR,
@@ -190,9 +190,10 @@ export const EnCatgories = {
     Sengo1_example_Card: EnMsg.SENGO_VISION_VISIONCARD,
     Sengo1_example_body: EnMsg.SENGO_VISION_VISIONFACE,
 
-    Sengo2_Setup: EnMsg.Sengo1_Setup,
-    Sengo2_Run: EnMsg.Sengo1_Run,
-    Sengo2_example: EnMsg.Sengo1_example,
+    mixly_Sengo2: EnMsg.mixly_Sengo2,
+    Sengo2_Setup: EnMsg.Sengo_Setup,
+    Sengo2_Run: EnMsg.Sengo_Run,
+    Sengo2_example: EnMsg.Sengo_example,
 
     Sengo_example_Blod: EnMsg.SENGO_VISION_VISIONBLOB,
     Sengo_example_Color: EnMsg.SENGO_VISION_VISIONCOLOR,

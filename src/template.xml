@@ -8,17 +8,18 @@
             <field name="NUM">1</field>
           </shadow>
         </value>
-      </block>      <!-- <block type="Sengo1SetAWB"></block> -->
-      <block type="Sengo1VisionSetStatus"></block>      <!-- <block type="Sengo1VisionSetParamNum"></block> -->
+      </block>
+      <block type="Sengo1VisionSetStatus"></block> 
       <block type="Sengo1VisionColorSetParam"></block>
       <block type="Sengo1VisionBlobSetParam">
         <field name="lable">Sengo1::kColorRed</field>
       </block>
+      <!-- <block type="Sengo1VisionFaceSetParam"></block> -->
     </category>
     <category id="Sengo1_Run" name="运行模块" colour="#EAA20A">
       <block type="Sengo1VisionDetectedCount"></block>
-      <block type="Sengo1VisionObj"></block>
       <block type="Sengo1VisionObjColor"></block>
+      <block type="Sengo1VisionObj"></block>
       <block type="Sengo1VisionObjLine"></block>
       <block type="Sengo1VisionObjQr"></block>
       <block type="Sengo1GetQrValue"></block>

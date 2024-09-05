@@ -78,6 +78,7 @@ export const sentry1_vision_objs = function () {
         [Blockly.Msg.SENGO_VISION_VISIONLINE, 'Sengo1::kVisionLine'],
         [Blockly.Msg.SENGO_VISION_VISIONCARD, 'Sengo1::kVisionCard'],
         [Blockly.Msg.SENGO_VISION_VISIONBODY, 'Sengo1::kVisionBody'],
+        [Blockly.Msg.SENGO_VISION_VISIONFACE, 'Sengo1::kVisionFace'],
         [
             Blockly.Msg.SENGO_VISION_VISIONQRCODE +
                 Blockly.Msg.SENGO_VISION_ENTERPRISE,
@@ -236,10 +237,7 @@ export const Sengo1Begin = {
             .appendField(Blockly.Msg.SENGO_ADDR)
             .appendField(
                 new Blockly.FieldDropdown([
-                    ['0x60', '0x60'],
-                    ['0x61', '0x61'],
-                    ['0x62', '0x62'],
-                    ['0x63', '0x63'],
+                    ['0x60', '0x60']
                 ]),
                 'addr_obj'
             )
@@ -327,24 +325,6 @@ export const Sengo1VisionSetStatus = {
     },
 }
 
-export const Sengo1SetAWB = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField(
-                Blockly.Msg.SENGO_SET +
-                    Blockly.Msg.SENGO1_NAME +
-                    Blockly.Msg.SENGO_CAMERA_SET_AWB
-            )
-            .appendField(
-                new Blockly.FieldDropdown(white_balance_objs()),
-                'awb_obj'
-            )
-        this.setPreviousStatement(true, null)
-        this.setNextStatement(true, null)
-        this.setColour('#EF5411')
-    },
-}
-
 export const Sengo1VisionSetParamNum = {
     init: function () {
         this.appendDummyInput()
@@ -382,10 +362,9 @@ export const Sengo1VisionColorSetParam = {
                 ]),
                 'vision_obj'
             )
-        this.appendDummyInput('VisionParam')
-            .appendField(Blockly.Msg.SENGO_STATE_VALUE_X)
+            .appendField("  "+Blockly.Msg.SENGO_CENTER+Blockly.Msg.SENGO_STATE_VALUE_X)
             .appendField(new Blockly.FieldNumber(50, 0, 9999, 1), 'x')
-            .appendField(Blockly.Msg.SENGO_STATE_VALUE_Y)
+            .appendField(Blockly.Msg.SENGO_CENTER+Blockly.Msg.SENGO_STATE_VALUE_Y)
             .appendField(new Blockly.FieldNumber(50, 0, 9999, 1), 'y')
             .appendField(Blockly.Msg.SENGO_STATE_VALUE_WIDTH)
             .appendField(new Blockly.FieldNumber(3, 0, 9999, 1), 'w')
@@ -414,8 +393,7 @@ export const Sengo1VisionBlobSetParam = {
                 ]),
                 'vision_obj'
             )
-        this.appendDummyInput('VisionParam')
-            .appendField(Blockly.Msg.SENGO_WEIGHT)
+            .appendField("  "+Blockly.Msg.SENGO_WEIGHT)
             .appendField(new Blockly.FieldNumber(3, 0, 9999, 1), 'w')
             .appendField(Blockly.Msg.SENGO_HEIGHT)
             .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'h')
@@ -424,6 +402,39 @@ export const Sengo1VisionBlobSetParam = {
                 new Blockly.FieldDropdown(sentry1_vision_blod_objs()),
                 'lable'
             )
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setColour('#EF5411')
+    },
+}
+
+export const Sengo1VisionFaceSetParam = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(
+                Blockly.Msg.SENGO_SET +
+                    Blockly.Msg.SENGO1_NAME +
+                    Blockly.Msg.SENGO_VISION_EN
+            )
+            .appendField(
+                new Blockly.FieldDropdown([
+                    [
+                        Blockly.Msg.SENGO_VISION_VISIONFACE,
+                        'Sengo1::kVisionFace',
+                    ],
+                ]),
+                'vision_obj'
+            )
+            .appendField(
+                new Blockly.FieldDropdown([
+                    [
+                        Blockly.Msg.SENGO_VISION_VISIONFACE,
+                        'Sengo1::kVisionFace',
+                    ],
+                ]),
+                'vision_obj'
+            )
+            .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'lable')
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
         this.setColour('#EF5411')
@@ -489,10 +500,8 @@ export const Sengo1VisionObjColor = {
         var _vision_objs = [
             [Blockly.Msg.SENGO_VISION_VISIONCOLOR, 'Sengo1::kVisionColor'],
         ]
-        this.appendDummyInput().appendField(
-            Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN
-        )
-        this.appendDummyInput('VisionValue')
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN)
             .appendField(new Blockly.FieldDropdown(_vision_objs), 'vision_obj')
             .appendField(Blockly.Msg.SENGO_VISION_RETURN)
             .appendField(
@@ -511,10 +520,8 @@ export const Sengo1VisionObjLine = {
         var _vision_objs = [
             [Blockly.Msg.SENGO_VISION_VISIONLINE, 'Sengo1::kVisionLine'],
         ]
-        this.appendDummyInput().appendField(
-            Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN
-        )
-        this.appendDummyInput('VisionValue')
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN)
             .appendField(new Blockly.FieldDropdown(_vision_objs), 'vision_obj')
             .appendField(Blockly.Msg.SENGO_VISION_RETURN)
             .appendField(
@@ -537,10 +544,8 @@ export const Sengo1VisionObjQr = {
                 'Sengo1::kVisionQrCode',
             ],
         ]
-        this.appendDummyInput().appendField(
-            Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN
-        )
-        this.appendDummyInput('VisionValue')
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN)
             .appendField(new Blockly.FieldDropdown(_vision_objs), 'vision_obj')
             .appendField(Blockly.Msg.SENGO_VISION_RETURN)
             .appendField(
@@ -571,10 +576,8 @@ export const Sengo1GetQrValue = {
 
 export const Sengo1VisionColor = {
     init: function () {
-        this.appendDummyInput().appendField(
-            Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN
-        )
-        this.appendDummyInput('VisionValue')
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN)
             .appendField(
                 new Blockly.FieldDropdown([
                     [
@@ -599,10 +602,8 @@ export const Sengo1VisionColor = {
 
 export const Sengo1VisionCardBlob = {
     init: function () {
-        this.appendDummyInput().appendField(
-            Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN
-        )
-        this.appendDummyInput('VisionValue')
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN)
             .appendField(
                 new Blockly.FieldDropdown([
                     [
@@ -628,10 +629,8 @@ export const Sengo1VisionCardBlob = {
 
 export const Sengo1VisionCard = {
     init: function () {
-        this.appendDummyInput().appendField(
-            Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN
-        )
-        this.appendDummyInput('VisionValue')
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN)
             .appendField(
                 new Blockly.FieldDropdown([
                     [
@@ -656,10 +655,8 @@ export const Sengo1VisionCard = {
 
 export const Sengo1VisionBall = {
     init: function () {
-        this.appendDummyInput().appendField(
-            Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN
-        )
-        this.appendDummyInput('VisionValue')
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.SENGO1_NAME + Blockly.Msg.SENGO_VISION_EN)
             .appendField(
                 new Blockly.FieldDropdown([
                     [

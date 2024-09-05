@@ -22,7 +22,7 @@ export const EnMsg = {
     SENGO_PORT: 'port',
     SENGO_ADDR: 'addr',
     SENGO_SET_DEFAULT: 'restore default params',
-    SENGO_VISION_CN: '  ',
+    SENGO_VISION_CN: '',
     SENGO_VISION_EN: 'algo',
     SENGO_STATUS: 'status',
     SENGO_SET: 'Set',
@@ -30,16 +30,16 @@ export const EnMsg = {
     SENGO_SET_PARAM: 'param',
     SENGO_SET_PARAM_GROUP: 'paramset',
     SENGO_INDEX: 'index',
-    SENGO_CENTER: 'center ',
+    SENGO_CENTER: '',
     SENGO_X: 'x-cood',
     SENGO_Y: 'y-cood',
     SENGO_WEIGHT: 'min-width',
     SENGO_HEIGHT: 'min-height',
     SENGO_COLOR: 'color',
     SENGO_LABLE: 'label',
-    SENGO_LED_SET_COLOR: 'LED\'s  color ',
+    SENGO_LED_SET_COLOR: 'LEDs\' color ',
     SENGO_LED_SET_COLOR_NOT: ' when targets were detected otherwise ',
-    SENGO_LED_SET_LEVEL: ' luma (0~15)',
+    SENGO_LED_SET_LEVEL: ' luma (1~15)',
     SENGO_CAMERA_SET_AWB: 'white balance mode',
     SENGO_VISION_DETECTED: '  detected ',
     SENGO_VISION_DETECTED_1: '  recognized ',
@@ -49,7 +49,7 @@ export const EnMsg = {
     SENGO_VISION_BLOCK: ' blob',
     SENGO_VISION_DATA: 'returnValue',
     SENGO_DETECTED_NUMBER: '  num of results',
-    SENGO_GET_QRCODEVALUE: '  decoding result string',
+    SENGO_GET_QRCODEVALUE: '  string of decoding result',
 
     // Sengo Vision type
     SENGO_VISION_VISIONCOLOR: 'Color',
@@ -103,7 +103,7 @@ export const EnMsg = {
     SENGO_STATE_VALUE_G: 'green CH value',
     SENGO_STATE_VALUE_B: 'blue CH value',
 
-    SENGO_BALLTABLETENNIS: 'Table tennis',
+    SENGO_BALLTABLETENNIS: 'Table Tennis',
     SENGO_BALLTENNIS: 'Tennis',
 
     // Sengo Color Type

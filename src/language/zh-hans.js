@@ -99,8 +99,8 @@ export const ZhHansMsg = {
     SENGO_STATE_LINE_A: '倾斜角度',
 
     SENGO_STATE_VALUE_R: '红色分量值',
-    SENGO_STATE_VALUE_G: '红色分量值',
-    SENGO_STATE_VALUE_B: '红色分量值',
+    SENGO_STATE_VALUE_G: '绿色分量值',
+    SENGO_STATE_VALUE_B: '蓝色分量值',
 
     SENGO_BALLTABLETENNIS: '乒乓球',
     SENGO_BALLTENNIS: '网球',
@@ -178,22 +178,11 @@ export const ZhHansMsg = {
 
 export const ZhHansCatgories = {
     mixly_Sengo1: ZhHansMsg.mixly_Sengo1,
-
-    Sengo1_Setup: ZhHansMsg.Sengo_Setup,
-    Sengo1_Run: ZhHansMsg.Sengo_Run,
-    Sengo1_example: ZhHansMsg.Sengo_example,
-
-    Sengo1_example_Blod: ZhHansMsg.SENGO_VISION_VISIONBLOB,
-    Sengo1_example_Color: ZhHansMsg.SENGO_VISION_VISIONCOLOR,
-    Sengo1_example_ball: ZhHansMsg.SENGO_VISION_VISIONBALL,
-    Sengo1_example_Line: ZhHansMsg.SENGO_VISION_VISIONLINE,
-    Sengo1_example_Card: ZhHansMsg.SENGO_VISION_VISIONCARD,
-    Sengo1_example_body: ZhHansMsg.SENGO_VISION_VISIONFACE,
-
     mixly_Sengo2: ZhHansMsg.mixly_Sengo2,
-    Sengo2_Setup: ZhHansMsg.Sengo_Setup,
-    Sengo2_Run: ZhHansMsg.Sengo_Run,
-    Sengo2_example: ZhHansMsg.Sengo_example,
+    
+    Sengo_Setup: ZhHansMsg.Sengo_Setup,
+    Sengo_Run: ZhHansMsg.Sengo_Run,
+    Sengo_example: ZhHansMsg.Sengo_example,
 
     Sengo_example_Blod: ZhHansMsg.SENGO_VISION_VISIONBLOB,
     Sengo_example_Color: ZhHansMsg.SENGO_VISION_VISIONCOLOR,
@@ -205,4 +194,6 @@ export const ZhHansCatgories = {
     Sengo_example_20Class: ZhHansMsg.SENGO_VISION_VISION20CLASSES,
     Sengo_example_Qr: ZhHansMsg.SENGO_VISION_VISIONQRCODE,
     Sengo_example_MotionDetect: ZhHansMsg.SENGO_VISION_VISIONMOTIONDETECT,
+    Sengo_example_Body: ZhHansMsg.SENGO_VISION_VISIONBODY,
+    Sengo_example_Ball: ZhHansMsg.SENGO_VISION_VISIONBALL,
 }

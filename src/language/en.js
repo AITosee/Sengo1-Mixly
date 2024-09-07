@@ -179,21 +179,11 @@ export const EnMsg = {
 
 export const EnCatgories = {
     mixly_Sengo1: EnMsg.mixly_Sengo1,
-    Sengo1_Setup: EnMsg.Sengo_Setup,
-    Sengo1_Run: EnMsg.Sengo_Run,
-    Sengo1_example: EnMsg.Sengo_example,
-
-    Sengo1_example_Blod: EnMsg.SENGO_VISION_VISIONBLOB,
-    Sengo1_example_Color: EnMsg.SENGO_VISION_VISIONCOLOR,
-    Sengo1_example_ball: EnMsg.SENGO_VISION_VISIONBALL,
-    Sengo1_example_Line: EnMsg.SENGO_VISION_VISIONLINE,
-    Sengo1_example_Card: EnMsg.SENGO_VISION_VISIONCARD,
-    Sengo1_example_body: EnMsg.SENGO_VISION_VISIONFACE,
-
     mixly_Sengo2: EnMsg.mixly_Sengo2,
-    Sengo2_Setup: EnMsg.Sengo_Setup,
-    Sengo2_Run: EnMsg.Sengo_Run,
-    Sengo2_example: EnMsg.Sengo_example,
+    
+    Sengo_Setup: EnMsg.Sengo_Setup,
+    Sengo_Run: EnMsg.Sengo_Run,
+    Sengo_example: EnMsg.Sengo_example,
 
     Sengo_example_Blod: EnMsg.SENGO_VISION_VISIONBLOB,
     Sengo_example_Color: EnMsg.SENGO_VISION_VISIONCOLOR,
@@ -205,4 +195,6 @@ export const EnCatgories = {
     Sengo_example_20Class: EnMsg.SENGO_VISION_VISION20CLASSES,
     Sengo_example_Qr: EnMsg.SENGO_VISION_VISIONQRCODE,
     Sengo_example_MotionDetect: EnMsg.SENGO_VISION_VISIONMOTIONDETECT,
+    Sengo_example_Body: EnMsg.SENGO_VISION_VISIONBODY,
+    Sengo_example_Ball: EnMsg.SENGO_VISION_VISIONBALL,
 }

@@ -158,6 +158,7 @@ export const Sengo1VisionColor = function (_, generator) {
 }
 
 export const Sengo1VisionCardBlob = Sengo1VisionColor
+export const Sengo1VisionBall = Sengo1VisionColor
 export const Sengo1VisionCard = Sengo1VisionColor
 
 // Sengo2

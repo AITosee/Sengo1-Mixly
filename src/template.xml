@@ -1,36 +1,1337 @@
 <%= htmlWebpackPlugin.tags.headTags.join('\n') %>
-  <category id="mixly_Sengo1" name="Sengo1" colour="#EF5411">
-    <category id="Sengo1_Setup" name="设置模块" colour="#EF5411">
-      <block type="Sengo1Begin"></block>
-      <block type="Sengo1LedSetColor">
-        <value name="level">
-          <shadow type="math_number">
-            <field name="NUM">1</field>
-          </shadow>
+<category id="mixly_Sengo1" name="Sengo1" colour="#EF5411">
+  <category id="Sengo1_Setup" name="设置模块" colour="#EF5411">
+    <block type="Sengo1Begin"></block>
+    <block type="Sengo1LedSetColor">
+      <value name="level">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="Sengo1VisionSetStatus"></block>
+    <block type="Sengo1VisionColorSetParam"></block>
+    <block type="Sengo1VisionBlobSetParam">
+      <field name="lable">Sengo1::kColorRed</field>
+    </block>
+    <!-- <block type="Sengo1VisionFaceSetParam"></block> -->
+  </category>
+  <category id="Sengo1_Run" name="运行模块" colour="#EAA20A">
+    <block type="Sengo1VisionDetectedCount"></block>
+    <block type="Sengo1VisionObjColor"></block>
+    <block type="Sengo1VisionObj"></block>
+    <block type="Sengo1VisionObjLine"></block>
+    <block type="Sengo1VisionObjQr"></block>
+    <block type="Sengo1GetQrValue"></block>
+    <block type="Sengo1VisionColor"></block>
+    <block type="Sengo1VisionCardBlob">
+      <field name="vision_card_obj">Sengo1::kColorRed</field>
+    </block>
+    <block type="Sengo1VisionBall"></block>
+    <block type="Sengo1VisionCard"></block>
+  </category>
+  <category id="Sengo1_example" name="算法示例" colour="#EAA20A">
+    <category id="Sengo_example_Color" name="颜色识别" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1VisionSetStatus">
+                <field name="VisionStatus">Begin</field>
+                <field name="vision_obj">Sengo1::kVisionColor</field>
+                <next>
+                  <block type="Sengo1VisionColorSetParam">
+                    <field name="vision_obj">Sengo1::kVisionColor</field>
+                    <field name="x">50</field>
+                    <field name="y">50</field>
+                    <field name="w">3</field>
+                    <field name="h">4</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionColor</field>
+          </block>
         </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">r=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObjColor">
+                    <field name="vision_obj">Sengo1::kVisionColor</field>
+                    <field name="vision_res_obj">kRValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT"> g=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObjColor">
+                        <field name="vision_obj">Sengo1::kVisionColor</field>
+                        <field name="vision_res_obj">kGValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT"> b=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObjColor">
+                            <field name="vision_obj">Sengo1::kVisionColor</field>
+                            <field name="vision_res_obj">kBValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">println</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT"> l=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObjColor">
+                                <field name="vision_obj">Sengo1::kVisionColor</field>
+                                <field name="vision_res_obj">kLabel</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
       </block>
-      <block type="Sengo1VisionSetStatus"></block> 
-      <block type="Sengo1VisionColorSetParam"></block>
-      <block type="Sengo1VisionBlobSetParam">
-        <field name="lable">Sengo1::kColorRed</field>
+    </category>
+    <category id="Sengo_example_Blod" name="色块检测" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1LedSetColor">
+                <field name="led_color_obj1">#ff00ff</field>
+                <field name="led_color_obj2">#00ff00</field>
+                <value name="level">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="Sengo1VisionSetStatus">
+                    <field name="VisionStatus">Begin</field>
+                    <field name="vision_obj">Sengo1::kVisionBlob</field>
+                    <next>
+                      <block type="Sengo1VisionBlobSetParam">
+                        <field name="vision_obj">Sengo1::kVisionBlob</field>
+                        <field name="w">3</field>
+                        <field name="h">4</field>
+                        <field name="lable">Sengo1::kColorRed</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
       </block>
-      <!-- <block type="Sengo1VisionFaceSetParam"></block> -->
-    </category>
-    <category id="Sengo1_Run" name="运行模块" colour="#EAA20A">
-      <block type="Sengo1VisionDetectedCount"></block>
-      <block type="Sengo1VisionObjColor"></block>
-      <block type="Sengo1VisionObj"></block>
-      <block type="Sengo1VisionObjLine"></block>
-      <block type="Sengo1VisionObjQr"></block>
-      <block type="Sengo1GetQrValue"></block>
-      <block type="Sengo1VisionColor"></block>
-      <block type="Sengo1VisionCardBlob">
-        <field name="vision_card_obj">Sengo1::kColorRed</field>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionBlob</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">x=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObj">
+                    <field name="vision_obj">Sengo1::kVisionBlob</field>
+                    <field name="vision_res_obj">kXValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT"> y=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObj">
+                        <field name="vision_obj">Sengo1::kVisionBlob</field>
+                        <field name="vision_res_obj">kYValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT"> w=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObj">
+                            <field name="vision_obj">Sengo1::kVisionBlob</field>
+                            <field name="vision_res_obj">kWidthValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">print</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT"> h=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObj">
+                                <field name="vision_obj">Sengo1::kVisionBlob</field>
+                                <field name="vision_res_obj">kHeightValue</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print">
+                            <field name="serial_select">Serial</field>
+                            <field name="new_line">println</field>
+                            <value name="CONTENT">
+                              <block type="text_join">
+                                <value name="A">
+                                  <shadow type="text">
+                                    <field name="TEXT"> l=</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text">
+                                    <field name="TEXT">Mixly</field>
+                                  </shadow>
+                                  <block type="Sengo1VisionObj">
+                                    <field name="vision_obj">Sengo1::kVisionBlob</field>
+                                    <field name="vision_res_obj">kLabel</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if">
+                                <value name="IF0">
+                                  <block type="Sengo1VisionCardBlob">
+                                    <field name="vision_obj">Sengo1::kVisionBlob</field>
+                                    <field name="vision_card_obj">Sengo1::kColorRed</field>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_print">
+                                    <field name="serial_select">Serial</field>
+                                    <field name="new_line">println</field>
+                                    <value name="CONTENT">
+                                      <block type="text_join">
+                                        <value name="A">
+                                          <shadow type="text">
+                                            <field name="TEXT">Blod=</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="text">
+                                            <field name="TEXT">Red</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
       </block>
-      <block type="Sengo1VisionBall"></block>
-      <block type="Sengo1VisionCard"></block>
     </category>
-    <category id="Sengo1_example" name="算法示例" colour="#EAA20A">
-      <category id="Sengo1_example_Blod" name="色块检测" colour="#EAA20A">
-      </category>
+    <category id="Sengo_example_Ball" name="色块检测" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1LedSetColor">
+                <field name="led_color_obj1">#ffff00</field>
+                <field name="led_color_obj2">#ff00ff</field>
+                <value name="level">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="Sengo1VisionSetStatus">
+                    <field name="VisionStatus">Begin</field>
+                    <field name="vision_obj">Sengo1::kVisionBall</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionBall</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">x=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObj">
+                    <field name="vision_obj">Sengo1::kVisionBall</field>
+                    <field name="vision_res_obj">kXValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT">y=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObj">
+                        <field name="vision_obj">Sengo1::kVisionBall</field>
+                        <field name="vision_res_obj">kYValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT">w=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObj">
+                            <field name="vision_obj">Sengo1::kVisionBall</field>
+                            <field name="vision_res_obj">kWidthValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">print</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT">h=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObj">
+                                <field name="vision_obj">Sengo1::kVisionBall</field>
+                                <field name="vision_res_obj">kHeightValue</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print">
+                            <field name="serial_select">Serial</field>
+                            <field name="new_line">println</field>
+                            <value name="CONTENT">
+                              <block type="text_join">
+                                <value name="A">
+                                  <shadow type="text">
+                                    <field name="TEXT">l=</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text">
+                                    <field name="TEXT">Mixly</field>
+                                  </shadow>
+                                  <block type="Sengo1VisionObj">
+                                    <field name="vision_obj">Sengo1::kVisionBall</field>
+                                    <field name="vision_res_obj">kLabel</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if">
+                                <value name="IF0">
+                                  <block type="Sengo1VisionBall">
+                                    <field name="vision_obj">Sengo1::kVisionBall</field>
+                                    <field name="vision_card_obj">Sengo1::kBallTableTennis</field>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_print">
+                                    <field name="serial_select">Serial</field>
+                                    <field name="new_line">println</field>
+                                    <value name="CONTENT">
+                                      <block type="text_join">
+                                        <value name="A">
+                                          <shadow type="text">
+                                            <field name="TEXT">Ball=</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="text">
+                                            <field name="TEXT">Table Tennis</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
     </category>
+    <category id="Sengo_example_Line" name="色块检测" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1LedSetColor">
+                <field name="led_color_obj1">#ffff00</field>
+                <field name="led_color_obj2">#ff00ff</field>
+                <value name="level">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="Sengo1VisionSetStatus">
+                    <field name="VisionStatus">Begin</field>
+                    <field name="vision_obj">Sengo1::kVisionLine</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionLine</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">ex=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObjLine">
+                    <field name="vision_obj">Sengo1::kVisionLine</field>
+                    <field name="vision_res_obj">kXValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT">ey=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObjLine">
+                        <field name="vision_obj">Sengo1::kVisionLine</field>
+                        <field name="vision_res_obj">kYValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT">sx=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObjLine">
+                            <field name="vision_obj">Sengo1::kVisionLine</field>
+                            <field name="vision_res_obj">kWidthValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">print</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT">sy=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObjLine">
+                                <field name="vision_obj">Sengo1::kVisionLine</field>
+                                <field name="vision_res_obj">kHeightValue</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print">
+                            <field name="serial_select">Serial</field>
+                            <field name="new_line">println</field>
+                            <value name="CONTENT">
+                              <block type="text_join">
+                                <value name="A">
+                                  <shadow type="text">
+                                    <field name="TEXT">a=</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text">
+                                    <field name="TEXT">Mixly</field>
+                                  </shadow>
+                                  <block type="Sengo1VisionObjLine">
+                                    <field name="vision_obj">Sengo1::kVisionLine</field>
+                                    <field name="vision_res_obj">kLabel</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </category>
+    <category id="Sengo_example_Card" name="色块检测" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1LedSetColor">
+                <field name="led_color_obj1">#ffff00</field>
+                <field name="led_color_obj2">#ff00ff</field>
+                <value name="level">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="Sengo1VisionSetStatus">
+                    <field name="VisionStatus">Begin</field>
+                    <field name="vision_obj">Sengo1::kVisionCard</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionCard</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">x=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObj">
+                    <field name="vision_obj">Sengo1::kVisionCard</field>
+                    <field name="vision_res_obj">kXValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT">y=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObj">
+                        <field name="vision_obj">Sengo1::kVisionCard</field>
+                        <field name="vision_res_obj">kYValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT">w=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObj">
+                            <field name="vision_obj">Sengo1::kVisionCard</field>
+                            <field name="vision_res_obj">kWidthValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">print</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT">h=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObj">
+                                <field name="vision_obj">Sengo1::kVisionCard</field>
+                                <field name="vision_res_obj">kHeightValue</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print">
+                            <field name="serial_select">Serial</field>
+                            <field name="new_line">println</field>
+                            <value name="CONTENT">
+                              <block type="text_join">
+                                <value name="A">
+                                  <shadow type="text">
+                                    <field name="TEXT">l=</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text">
+                                    <field name="TEXT">Mixly</field>
+                                  </shadow>
+                                  <block type="Sengo1VisionObj">
+                                    <field name="vision_obj">Sengo1::kVisionCard</field>
+                                    <field name="vision_res_obj">kLabel</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if">
+                                <value name="IF0">
+                                  <block type="Sengo1VisionCard">
+                                    <field name="vision_obj">Sengo1::kVisionCard</field>
+                                    <field name="vision_card_obj">Sengo1::kCardForward</field>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="serial_print">
+                                    <field name="serial_select">Serial</field>
+                                    <field name="new_line">println</field>
+                                    <value name="CONTENT">
+                                      <block type="text_join">
+                                        <value name="A">
+                                          <shadow type="text">
+                                            <field name="TEXT">Card=</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="text">
+                                            <field name="TEXT">Forward</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </category>
+    <category id="Sengo_example_Body" name="色块检测" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1LedSetColor">
+                <field name="led_color_obj1">#ffff00</field>
+                <field name="led_color_obj2">#ff00ff</field>
+                <value name="level">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="Sengo1VisionSetStatus">
+                    <field name="VisionStatus">Begin</field>
+                    <field name="vision_obj">Sengo1::kVisionBody</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionBody</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">x=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObj">
+                    <field name="vision_obj">Sengo1::kVisionBody</field>
+                    <field name="vision_res_obj">kXValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT">y=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObj">
+                        <field name="vision_obj">Sengo1::kVisionBody</field>
+                        <field name="vision_res_obj">kYValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT">w=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObj">
+                            <field name="vision_obj">Sengo1::kVisionBody</field>
+                            <field name="vision_res_obj">kWidthValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">print</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT">h=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObj">
+                                <field name="vision_obj">Sengo1::kVisionBody</field>
+                                <field name="vision_res_obj">kHeightValue</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print">
+                            <field name="serial_select">Serial</field>
+                            <field name="new_line">println</field>
+                            <value name="CONTENT">
+                              <block type="text_join">
+                                <value name="A">
+                                  <shadow type="text">
+                                    <field name="TEXT">l=</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text">
+                                    <field name="TEXT">Mixly</field>
+                                  </shadow>
+                                  <block type="Sengo1VisionObj">
+                                    <field name="vision_obj">Sengo1::kVisionBody</field>
+                                    <field name="vision_res_obj">kLabel</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </category>
+    <category id="Sengo_example_Face" name="色块检测" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1LedSetColor">
+                <field name="led_color_obj1">#ffff00</field>
+                <field name="led_color_obj2">#ff00ff</field>
+                <value name="level">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="Sengo1VisionSetStatus">
+                    <field name="VisionStatus">Begin</field>
+                    <field name="vision_obj">Sengo1::kVisionFace</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionFace</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">x=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObj">
+                    <field name="vision_obj">Sengo1::kVisionFace</field>
+                    <field name="vision_res_obj">kXValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT">y=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObj">
+                        <field name="vision_obj">Sengo1::kVisionFace</field>
+                        <field name="vision_res_obj">kYValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT">w=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObj">
+                            <field name="vision_obj">Sengo1::kVisionFace</field>
+                            <field name="vision_res_obj">kWidthValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">print</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT">h=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObj">
+                                <field name="vision_obj">Sengo1::kVisionFace</field>
+                                <field name="vision_res_obj">kHeightValue</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print">
+                            <field name="serial_select">Serial</field>
+                            <field name="new_line">println</field>
+                            <value name="CONTENT">
+                              <block type="text_join">
+                                <value name="A">
+                                  <shadow type="text">
+                                    <field name="TEXT">l=</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text">
+                                    <field name="TEXT">Mixly</field>
+                                  </shadow>
+                                  <block type="Sengo1VisionObj">
+                                    <field name="vision_obj">Sengo1::kVisionFace</field>
+                                    <field name="vision_res_obj">kLabel</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </category>
+    <category id="Sengo_example_Qr" name="色块检测" colour="#EAA20A">
+      <block type="base_setup">
+        <statement name="DO">
+          <block type="Sengo1Begin">
+            <field name="mode_obj">Wire</field>
+            <field name="addr_obj">0x60</field>
+            <next>
+              <block type="Sengo1LedSetColor">
+                <field name="led_color_obj1">#ffff00</field>
+                <field name="led_color_obj2">#ff00ff</field>
+                <value name="level">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="Sengo1VisionSetStatus">
+                    <field name="VisionStatus">Begin</field>
+                    <field name="vision_obj">Sengo1::kVisionQrCode</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="Sengo1VisionDetectedCount">
+            <field name="vision_obj">Sengo1::kVisionQrCode</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print">
+            <field name="serial_select">Serial</field>
+            <field name="new_line">print</field>
+            <value name="CONTENT">
+              <block type="text_join">
+                <value name="A">
+                  <shadow type="text">
+                    <field name="TEXT">x=</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="text">
+                    <field name="TEXT">Mixly</field>
+                  </shadow>
+                  <block type="Sengo1VisionObjQr">
+                    <field name="vision_obj">Sengo1::kVisionQrCode</field>
+                    <field name="vision_res_obj">kXValue</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print">
+                <field name="serial_select">Serial</field>
+                <field name="new_line">print</field>
+                <value name="CONTENT">
+                  <block type="text_join">
+                    <value name="A">
+                      <shadow type="text">
+                        <field name="TEXT">y=</field>
+                      </shadow>
+                    </value>
+                    <value name="B">
+                      <shadow type="text">
+                        <field name="TEXT">Mixly</field>
+                      </shadow>
+                      <block type="Sengo1VisionObjQr">
+                        <field name="vision_obj">Sengo1::kVisionQrCode</field>
+                        <field name="vision_res_obj">kYValue</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print">
+                    <field name="serial_select">Serial</field>
+                    <field name="new_line">print</field>
+                    <value name="CONTENT">
+                      <block type="text_join">
+                        <value name="A">
+                          <shadow type="text">
+                            <field name="TEXT">w=</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="text">
+                            <field name="TEXT">Mixly</field>
+                          </shadow>
+                          <block type="Sengo1VisionObjQr">
+                            <field name="vision_obj">Sengo1::kVisionQrCode</field>
+                            <field name="vision_res_obj">kWidthValue</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print">
+                        <field name="serial_select">Serial</field>
+                        <field name="new_line">print</field>
+                        <value name="CONTENT">
+                          <block type="text_join">
+                            <value name="A">
+                              <shadow type="text">
+                                <field name="TEXT">h=</field>
+                              </shadow>
+                            </value>
+                            <value name="B">
+                              <shadow type="text">
+                                <field name="TEXT">Mixly</field>
+                              </shadow>
+                              <block type="Sengo1VisionObjQr">
+                                <field name="vision_obj">Sengo1::kVisionQrCode</field>
+                                <field name="vision_res_obj">kHeightValue</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print">
+                            <field name="serial_select">Serial</field>
+                            <field name="new_line">println</field>
+                            <value name="CONTENT">
+                              <block type="text_join">
+                                <value name="A">
+                                  <shadow type="text">
+                                    <field name="TEXT">s=</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text">
+                                    <field name="TEXT">Mixly</field>
+                                  </shadow>
+                                  <block type="Sengo1GetQrValue">
+                                    <field name="vision_obj">Sengo1::kVisionQrCode</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </category>
+  </category>

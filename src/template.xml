@@ -1,6 +1,6 @@
 <%= htmlWebpackPlugin.tags.headTags.join('\n') %>
-<category id="mixly_Sengo1" name="Sengo1" colour="#EF5411">
-  <category id="Sengo1_Setup" name="设置模块" colour="#EF5411">
+<category id="mixly_Sengo1" colour="#EF5411">
+  <category id="Sengo_Setup" colour="#EF5411">
     <block type="Sengo1Begin"></block>
     <block type="Sengo1LedSetColor">
       <value name="level">
@@ -16,7 +16,7 @@
     </block>
     <!-- <block type="Sengo1VisionFaceSetParam"></block> -->
   </category>
-  <category id="Sengo1_Run" name="运行模块" colour="#EAA20A">
+  <category id="Sengo_Run" colour="#EAA20A">
     <block type="Sengo1VisionDetectedCount"></block>
     <block type="Sengo1VisionObjColor"></block>
     <block type="Sengo1VisionObj"></block>
@@ -30,8 +30,8 @@
     <block type="Sengo1VisionBall"></block>
     <block type="Sengo1VisionCard"></block>
   </category>
-  <category id="Sengo1_example" name="算法示例" colour="#EAA20A">
-    <category id="Sengo_example_Color" name="颜色识别" colour="#EAA20A">
+  <category id="Sengo_example" colour="#EAA20A">
+    <category id="Sengo_example_Color" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">
@@ -159,7 +159,7 @@
         </statement>
       </block>
     </category>
-    <category id="Sengo_example_Blod" name="色块检测" colour="#EAA20A">
+    <category id="Sengo_example_Blod" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">
@@ -351,7 +351,7 @@
         </statement>
       </block>
     </category>
-    <category id="Sengo_example_Ball" name="色块检测" colour="#EAA20A">
+    <category id="Sengo_example_Ball" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">
@@ -535,7 +535,7 @@
         </statement>
       </block>
     </category>
-    <category id="Sengo_example_Line" name="色块检测" colour="#EAA20A">
+    <category id="Sengo_example_Line" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">
@@ -689,7 +689,7 @@
         </statement>
       </block>
     </category>
-    <category id="Sengo_example_Card" name="色块检测" colour="#EAA20A">
+    <category id="Sengo_example_Card" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">
@@ -873,7 +873,7 @@
         </statement>
       </block>
     </category>
-    <category id="Sengo_example_Body" name="色块检测" colour="#EAA20A">
+    <category id="Sengo_example_Body" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">
@@ -1027,7 +1027,7 @@
         </statement>
       </block>
     </category>
-    <category id="Sengo_example_Face" name="色块检测" colour="#EAA20A">
+    <category id="Sengo_example_Face" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">
@@ -1181,7 +1181,7 @@
         </statement>
       </block>
     </category>
-    <category id="Sengo_example_Qr" name="色块检测" colour="#EAA20A">
+    <category id="Sengo_example_Qr" colour="#EAA20A">
       <block type="base_setup">
         <statement name="DO">
           <block type="Sengo1Begin">

@@ -15,7 +15,7 @@
     <block type="Sengo1VisionBlobSetParam">
       <field name="lable">Sengo1::kColorRed</field>
     </block>
-    <!-- <block type="Sengo1VisionFaceSetParam"></block> -->
+    <block type="Sengo1VisionFaceSetParam"></block>
   </category>
   <category id="Sengo_Run" colour="#EAA20A">
     <block type="Sengo1VisionDetectedCount"></block>

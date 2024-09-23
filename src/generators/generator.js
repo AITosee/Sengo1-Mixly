@@ -69,6 +69,7 @@ export const Sengo1VisionBlobSetParam = function (_, generator) {
 }
 
 export const Sengo1VisionColorSetParam = Sengo1VisionBlobSetParam
+export const Sengo1VisionFaceSetParam = Sengo1VisionBlobSetParam
 
 export const Sengo1LedSetColor = function (_, generator) {
     generator = generator ?? Blockly.Arduino
@@ -88,8 +89,7 @@ export const Sengo1LedSetColor = function (_, generator) {
     var dropdown_led_color_obj2 =
         color_dic[this.getFieldValue('led_color_obj2')]
 
-    var input_level =
-        generator.valueToCode(this, 'level', generator.ORDER_ATOMIC) || '1'
+    var input_level = this.getFieldValue('level')
 
     return `sengo1.LedSetColor(${dropdown_led_color_obj1},${dropdown_led_color_obj2},${input_level});\n`
 }

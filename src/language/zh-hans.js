@@ -50,6 +50,10 @@ export const ZhHansMsg = {
     SENGO_DETECTED_NUMBER: '  返回的结果数量',
     SENGO_GET_QRCODEVALUE: '  返回的结果字符串',
 
+    SENGO_SAVE_DATA: '保存数据并',
+    SENGO_DEL_DATA: '删除数据',
+    SENGO_SET_ID: '编号',
+
     // Sengo Vision type
     SENGO_VISION_VISIONCOLOR: '颜色识别',
     SENGO_VISION_VISIONBLOB: '色块检测',

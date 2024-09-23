@@ -290,7 +290,7 @@ export const Sengo1LedSetColor = {
             .appendField(Blockly.Msg.SENGO_LED_SET_COLOR_NOT)
             .appendField(color_undetected, 'led_color_obj2')
             .appendField(Blockly.Msg.SENGO_LED_SET_LEVEL)
-        this.appendValueInput('level').setCheck([Number])
+            .appendField(new Blockly.FieldNumber(1, 1, 15, 1), 'level')
         this.setInputsInline(true)
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
@@ -425,16 +425,24 @@ export const Sengo1VisionFaceSetParam = {
                 ]),
                 'vision_obj'
             )
+            .appendField("  ")
             .appendField(
                 new Blockly.FieldDropdown([
                     [
-                        Blockly.Msg.SENGO_VISION_VISIONFACE,
-                        'Sengo1::kVisionFace',
+                        Blockly.Msg.SENGO_SAVE_DATA,
+                        '1',
+                    ],
+                    [
+                        Blockly.Msg.SENGO_DEL_DATA,
+                        '0',
                     ],
                 ]),
-                'vision_obj'
+                'lable'
             )
-            .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'lable')
+            .appendField(
+                Blockly.Msg.SENGO_SET_ID
+            )
+            .appendField(new Blockly.FieldNumber(0, 0, 10, 1), 'index')
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
         this.setColour('#EF5411')

@@ -51,6 +51,10 @@ export const EnMsg = {
     SENGO_DETECTED_NUMBER: '  num of results',
     SENGO_GET_QRCODEVALUE: '  string of decoding result',
 
+    SENGO_SAVE_DATA: 'save data as',
+    SENGO_DEL_DATA: 'delete data',
+    SENGO_SET_ID: 'ID',
+
     // Sengo Vision type
     SENGO_VISION_VISIONCOLOR: 'Color',
     SENGO_VISION_VISIONBLOB: 'Blob',

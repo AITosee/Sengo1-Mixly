@@ -11,7 +11,7 @@ export const EnMsg = {
 
     //Warning text
     SENGO_WARNING_ON_INIT:
-        'do not use serial to connect sentry and the computer to print characters at the same time. This operation will cause confusion of printed characters or abnormal communication at the computer end',
+        'do not use serial to connect sengo1 and the computer to print characters at the same time. This operation will cause confusion of printed characters or abnormal communication at the computer end',
 
     SENGO_VISION_ENTERPRISE: '',
 

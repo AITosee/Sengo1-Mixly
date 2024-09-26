@@ -37,8 +37,8 @@ jobs:
           npm run build:prod:2.0rc3
           cd dist 
           PACK_DIR=${GITHUB_REPOSITORY#*/}
-          zip -r ${{ steps.vars.outputs.package }}_2.0rc3.zip ${PACK_DIR,,}
-          cp -rv ${{ steps.vars.outputs.package }}_2.0rc3.zip ${GITHUB_WORKSPACE}
+          zip -r ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip ${PACK_DIR,,}
+          cp -rv ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip ${GITHUB_WORKSPACE}
 
       - name: Build 1.0 package
         run: |
@@ -46,8 +46,8 @@ jobs:
           npm run build:prod:1.0
           cd dist 
           PACK_DIR=${GITHUB_REPOSITORY#*/}
-          zip -r ${{ steps.vars.outputs.package }}_1.0.zip ${PACK_DIR,,}
-          cp -rv ${{ steps.vars.outputs.package }}_1.0.zip ${GITHUB_WORKSPACE}
+          zip -r ${{ steps.vars.outputs.package }}_mixly1.x.zip ${PACK_DIR,,}
+          cp -rv ${{ steps.vars.outputs.package }}_mixly1.x.zip ${GITHUB_WORKSPACE}
 
           
       - name: Create Release and Upload Release Asset
@@ -55,5 +55,5 @@ jobs:
         with:
           files: |
            ${{ steps.vars.outputs.package }}.zip
-           ${{ steps.vars.outputs.package }}_2.0rc3.zip
-           ${{ steps.vars.outputs.package }}_1.0.zip
+           ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip
+           ${{ steps.vars.outputs.package }}_mixly1.x.zip

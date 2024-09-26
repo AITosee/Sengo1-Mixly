@@ -10,7 +10,6 @@ module.exports = {
     cache: false,
     target: ['web', 'es5'],
     entry: {
-        'block/company/sengo1': path.resolve(__dirname, 'block.js'),
         'block/sengo1': path.resolve(ORI_DIR, 'src/index.js'),
         'generator/sengo1': path.resolve(__dirname, 'generator.js'),
         'language/sengo1/zh-hans': path.resolve(__dirname, 'language/zh-hans.js'),

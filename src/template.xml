@@ -1,4 +1,3 @@
-<!-- type="company"  block="block/sengo1.js" generator="generator/sengo1.js" lib="Sentry"  media="media/sengo1"  language="language/sengo1" -->
 <%= htmlWebpackPlugin.tags.headTags.join('\n') %>
 <category id="mixly_Sengo1" colour="#EF5411">
   <category id="Sengo_Setup" colour="#EF5411">

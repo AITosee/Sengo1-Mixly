@@ -430,7 +430,7 @@ export const Sengo1VisionFaceSetParam = {
                 new Blockly.FieldDropdown([
                     [
                         Blockly.Msg.SENGO_SAVE_DATA,
-                        '1',
+                        '100',
                     ],
                     [
                         Blockly.Msg.SENGO_DEL_DATA,
@@ -442,7 +442,8 @@ export const Sengo1VisionFaceSetParam = {
             .appendField(
                 Blockly.Msg.SENGO_SET_ID
             )
-            .appendField(new Blockly.FieldNumber(0, 0, 10, 1), 'index')
+        this.appendValueInput('index').setCheck([Number])
+        this.setInputsInline(true)
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
         this.setColour('#EF5411')

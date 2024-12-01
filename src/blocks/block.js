@@ -289,8 +289,8 @@ export const Sengo1LedSetColor = {
             .appendField(color_detected, 'led_color_obj1')
             .appendField(Blockly.Msg.SENGO_LED_SET_COLOR_NOT)
             .appendField(color_undetected, 'led_color_obj2')
-            .appendField(Blockly.Msg.SENGO_LED_SET_LEVEL)
-            .appendField(new Blockly.FieldNumber(1, 1, 15, 1), 'level')
+            .appendField(Blockly.Msg.SENTRY_LED_SET_LEVEL)
+        this.appendValueInput('level').setCheck([Number])
         this.setInputsInline(true)
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
@@ -362,15 +362,24 @@ export const Sengo1VisionColorSetParam = {
                 ]),
                 'vision_obj'
             )
-            .appendField("  "+Blockly.Msg.SENGO_CENTER+Blockly.Msg.SENGO_STATE_VALUE_X)
-            .appendField(new Blockly.FieldNumber(50, 0, 9999, 1), 'x')
-            .appendField(Blockly.Msg.SENGO_CENTER+Blockly.Msg.SENGO_STATE_VALUE_Y)
-            .appendField(new Blockly.FieldNumber(50, 0, 9999, 1), 'y')
+        this.appendDummyInput()
+            .appendField(
+                "  " + Blockly.Msg.SENGO_CENTER + Blockly.Msg.SENGO_STATE_VALUE_X
+            )
+        this.appendValueInput('x').setCheck([Number])
+        this.appendDummyInput()
+            .appendField(
+                Blockly.Msg.SENGO_CENTER + Blockly.Msg.SENGO_STATE_VALUE_Y
+            )
+        this.appendValueInput('y').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO_STATE_VALUE_WIDTH)
-            .appendField(new Blockly.FieldNumber(3, 0, 9999, 1), 'w')
+        this.appendValueInput('w').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO_STATE_VALUE_HEIGHT)
-            .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'h')
+        this.appendValueInput('h').setCheck([Number])
         this.setPreviousStatement(true, null)
+        this.setInputsInline(true)
         this.setNextStatement(true, null)
         this.setColour('#EF5411')
     },
@@ -393,10 +402,13 @@ export const Sengo1VisionBlobSetParam = {
                 ]),
                 'vision_obj'
             )
-            .appendField("  "+Blockly.Msg.SENGO_WEIGHT)
-            .appendField(new Blockly.FieldNumber(3, 0, 9999, 1), 'w')
+        this.appendDummyInput()
+            .appendField("  " + Blockly.Msg.SENGO_WEIGHT)
+        this.appendValueInput('w').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO_HEIGHT)
-            .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'h')
+        this.appendValueInput('h').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO_COLOR)
             .appendField(
                 new Blockly.FieldDropdown(sengo1_vision_blod_objs()),
@@ -404,6 +416,7 @@ export const Sengo1VisionBlobSetParam = {
             )
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
+        this.setInputsInline(true)
         this.setColour('#EF5411')
     },
 }

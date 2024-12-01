@@ -183,7 +183,7 @@ export const ZhHansMsg = {
 export const ZhHansCatgories = {
     mixly_Sengo1: ZhHansMsg.mixly_Sengo1,
     mixly_Sengo2: ZhHansMsg.mixly_Sengo2,
-    
+
     Sengo_Setup: ZhHansMsg.Sengo_Setup,
     Sengo_Run: ZhHansMsg.Sengo_Run,
     Sengo_example: ZhHansMsg.Sengo_example,

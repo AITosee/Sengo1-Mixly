@@ -182,7 +182,7 @@ export const ZhHantMsg = {
 export const ZhHantCatgories = {
     mixly_Sengo1: ZhHantMsg.mixly_Sengo1,
     mixly_Sengo2: ZhHantMsg.mixly_Sengo2,
-    
+
     Sengo_Setup: ZhHantMsg.Sengo_Setup,
     Sengo_Run: ZhHantMsg.Sengo_Run,
     Sengo_example: ZhHantMsg.Sengo_example,

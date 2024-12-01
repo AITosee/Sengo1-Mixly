@@ -184,7 +184,7 @@ export const EnMsg = {
 export const EnCatgories = {
     mixly_Sengo1: EnMsg.mixly_Sengo1,
     mixly_Sengo2: EnMsg.mixly_Sengo2,
-    
+
     Sengo_Setup: EnMsg.Sengo_Setup,
     Sengo_Run: EnMsg.Sengo_Run,
     Sengo_example: EnMsg.Sengo_example,

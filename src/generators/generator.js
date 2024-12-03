@@ -100,7 +100,7 @@ export const Sengo1VisionColorSetParam = function (_, generator) {
 export const Sengo1VisionFaceSetParam = function (_, generator) {
     generator = generator ?? Blockly.Arduino
     var dropdown_vision_obj = this.getFieldValue('vision_obj')
-    var input_index = '1'
+    var input_index = generator.valueToCode(this, 'index', generator.ORDER_ATOMIC)
 
     var input_x = 0
     var input_y = 0

@@ -226,7 +226,10 @@ export const vision_obj_card_dict = function () {
 
 export const Sengo1Begin = {
     init: function () {
-        var mode_objs = [['I2C', 'Wire']].concat(Profile.default.serial_select)
+        var serial_HardwareSelect = Profile.default.serial_HardwareSelect ?? Profile.default.serial_select
+        var mode_objs = [['I2C', 'Wire']].concat(serial_HardwareSelect).concat(Profile.default.serial_select)
+        mode_objs = Array.from(new Set(mode_objs.map(JSON.stringify))).map(JSON.parse);
+
         this.appendDummyInput()
             .appendField(
                 Blockly.Msg.SENGO_BEGIN +

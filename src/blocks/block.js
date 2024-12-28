@@ -575,7 +575,7 @@ export const Sengo1VisionObjQr = {
             .appendField(new Blockly.FieldDropdown(_vision_objs), 'vision_obj')
             .appendField(Blockly.Msg.SENGO_VISION_RETURN)
             .appendField(
-                new Blockly.FieldDropdown(vision_qr_objs),
+                new Blockly.FieldDropdown(vision_qr_objs()),
                 'vision_res_obj'
             )
             .appendField(Blockly.Msg.SENGO_VISION_RESULT)
